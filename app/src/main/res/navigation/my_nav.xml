@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/user_welcomeFragment">
+
+    <fragment
+        android:id="@+id/user_welcomeFragment"
+        android:name="com.example.scrimp_goaler.User_welcomeFragment"
+        android:label="fragment_user_welcome"
+        tools:layout="@layout/fragment_user_welcome" >
+        <action
+            android:id="@+id/action_user_welcomeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.scrimp_goaler.homeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+</navigation>
