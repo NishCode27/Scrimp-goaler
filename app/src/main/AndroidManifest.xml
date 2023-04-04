@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Scrimp_goaler"
         tools:targetApi="31">
         <activity
+            android:name=".set_goal"
+            android:exported="false" />
+        <activity
+            android:name=".landingpage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
