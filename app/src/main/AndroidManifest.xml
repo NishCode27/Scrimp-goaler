@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
-        tools:ignore="CoarseFineLocation" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -14,12 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Scrimp_goaler"
         tools:targetApi="31">
-        <activity
-            android:name=".Mapactivity2"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".Sensor_activity"-->
-<!--            android:exported="false" />-->
+
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -33,15 +30,11 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDDd9PEWavbpkRWaItYjiy5dXNShKB-Mow" />
+            android:value="AIzaSyBOjlttg6mai78vdRc0sDBTpioaVeve_0Y" />
 
 
 
-        <activity
-            android:name=".Mapactivity2"
-            android:exported="false"
-            android:label="@string/title_mapactivity2"
-            tools:ignore="DuplicateActivity" />
+
 
         <activity
             android:name=".set_goal"
@@ -59,8 +52,29 @@
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
+            android:exported="true"
+            android:label="@string/title_activity_maps">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Map_activity2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Sensor_activity"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
     </application>
 
 </manifest>

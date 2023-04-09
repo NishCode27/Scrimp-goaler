@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
-        SharedPreferences sharedPreferences = this.getSharedPreferences("com.scrimp", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.scrimp_goaler", Context.MODE_PRIVATE);
         arrayList.clear();
         latitudeList.clear();
         longitudeList.clear();

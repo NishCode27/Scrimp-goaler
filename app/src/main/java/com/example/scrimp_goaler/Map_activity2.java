@@ -1,10 +1,8 @@
 package com.example.scrimp_goaler;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -13,9 +11,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Mapactivity2 extends AppCompatActivity implements OnMapReadyCallback {
+public class Map_activity2 extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     String lat;
     String lon;
     @Override
@@ -45,7 +42,6 @@ public class Mapactivity2 extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = getIntent();
         lat = intent.getStringExtra("lat");
         lon = intent.getStringExtra("lon");
-        mMap = googleMap;
         LatLng clickedLocation = new LatLng(Double.parseDouble(lat),Double.parseDouble(lon));
 
 
@@ -54,10 +50,10 @@ public class Mapactivity2 extends AppCompatActivity implements OnMapReadyCallbac
 
             // Add a marker in Sydney and move the camera
             LatLng sydney = new LatLng(Double.parseDouble(MainActivity.latitudeList.get(i)),Double.parseDouble(MainActivity.longitudeList.get(i)));
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Your Place of wish"));
+            googleMap.addMarker(new MarkerOptions().position(sydney).title("Your Place of wish"));
 
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(clickedLocation, 10));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(clickedLocation, 10));
     }
 }
 

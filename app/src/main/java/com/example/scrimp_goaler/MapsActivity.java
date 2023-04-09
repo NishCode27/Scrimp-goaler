@@ -36,7 +36,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -53,8 +53,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        assert mapFragment != null;
-        mapFragment.getMapAsync(this);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
+
     }
 
 
@@ -68,7 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.setOnMapLongClickListener(this);
@@ -112,7 +114,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    public void onMapLongClick(@NonNull LatLng latLng) {
+    public void onMapLongClick( LatLng latLng) {
         mMap.addMarker(new MarkerOptions().position(latLng).title("Boring").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
@@ -132,7 +134,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 MainActivity.latitudeList.add(String.valueOf(latLng.latitude));
                 MainActivity.longitudeList.add(String.valueOf(latLng.longitude));
 
-                SharedPreferences sharedPreferences = this.getSharedPreferences("com.scrimp", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = this.getSharedPreferences("com.scrimp_goaler", Context.MODE_PRIVATE);
 
                 try {
 
