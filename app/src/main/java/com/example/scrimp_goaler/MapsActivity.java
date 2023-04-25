@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -53,9 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        if (mapFragment != null) {
             mapFragment.getMapAsync(this);
-        }
 
     }
 
@@ -72,6 +69,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        LatLng sydney = new LatLng(6.884510780951044, 79.88339057723114);
+         mMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.setOnMapLongClickListener(this);
 
@@ -83,9 +84,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                Log.i("Latitude", String.valueOf(location.getLatitude()));
                 // Add a marker in Sydney and move the camera
 
-                LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
-//                mMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+//                LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
+////                mMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
+//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
 
 
             }
@@ -115,7 +116,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapLongClick( LatLng latLng) {
-        mMap.addMarker(new MarkerOptions().position(latLng).title("Boring").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(latLng).title("New place").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
 //        Toast.makeText(this, String.valueOf(latLng.latitude), Toast.LENGTH_SHORT).show();
