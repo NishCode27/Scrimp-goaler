@@ -1,5 +1,6 @@
 package com.example.scrimp_goaler;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,7 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class Sensor_activity extends Activity implements SensorEventListener{
+public class SensorActivity extends Activity implements SensorEventListener{
     private SensorManager sensorManager;
     private boolean isColor = false;
     private View view;
@@ -81,6 +82,14 @@ public class Sensor_activity extends Activity implements SensorEventListener{
 
         super.onPause();
         sensorManager.unregisterListener(this);
-    }
-}
 
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SensorActivity.class);
+                startActivity(intent);
+            }
+        });
+        }
+}

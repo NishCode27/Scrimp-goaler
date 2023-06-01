@@ -16,31 +16,14 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ListView listView;
-    static ArrayList<String> arrayList = new ArrayList<String>();
-    static ArrayList<String> latitudeList = new ArrayList<String>();
-    static ArrayList<String> longitudeList = new ArrayList<String>();
-    static  ArrayAdapter<String> arrayAdapter;
-    Button openmapBtn;
 
-    //Pin Location App
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        openmapBtn = (Button) findViewById(R.id.openmapBtn);
-        openmapBtn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent mapIntent = new Intent(getApplicationContext(),MapsActivity.class);
-                        startActivity(mapIntent);
-                    }
-
-                }
-        );
-
+        Intent intent = new Intent(getApplicationContext(),SignUpActivity.class);
+        startActivity(intent);
     }
 }
-
-

@@ -11,9 +11,14 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, "Login.db", null, 1);
     }
 
+    public static final String goalvalue = "Goal value";
+    public static final String goaldescription = "Goal description";
+    public static final String goalPeriod = "Period";
+    public static final String goalstartdate = "Start date";
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
+        MyDB.execSQL("create Table goals(goalvalue TEXT primary key,goaldescription TEXT , goalperiod TEXT ,goalstartdate TEXT )");
     }
 
     @Override
@@ -49,4 +54,24 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+
+    public Boolean insertGoals(String goalvalue, String goaldescription,String goalperiod, String goalstartdate){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put("value",goalvalue);
+        contentValues.put("description", goaldescription);
+        contentValues.put("period", goalperiod);
+        contentValues.put("start date", goalstartdate);
+        long result = MyDB.insert("goals", null, contentValues);
+        if(result==-1) return false;
+        else
+            return true;
+    }
+
+    public Cursor getAllData(){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor result = MyDB.rawQuery("Select * from " + "goals", null);
+        return result;
+    }
+
 }

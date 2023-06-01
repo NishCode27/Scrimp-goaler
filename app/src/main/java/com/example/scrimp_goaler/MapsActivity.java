@@ -131,18 +131,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                Toast.makeText(this,addre.get(0).getAdminArea(), Toast.LENGTH_SHORT).show();
                 address += String.valueOf(addre.get(0).getAddressLine(0));
                 Log.i("Address Line", address);
-                MainActivity.arrayList.add(address);
-                MainActivity.latitudeList.add(String.valueOf(latLng.latitude));
-                MainActivity.longitudeList.add(String.valueOf(latLng.longitude));
+                PinPlaceActivity.arrayList.add(address);
+                PinPlaceActivity.latitudeList.add(String.valueOf(latLng.latitude));
+                PinPlaceActivity.longitudeList.add(String.valueOf(latLng.longitude));
 
                 SharedPreferences sharedPreferences = this.getSharedPreferences("com.scrimp_goaler", Context.MODE_PRIVATE);
 
                 try {
 
 
-                    sharedPreferences.edit().putString("places", ObjectSerializer.serialize(MainActivity.arrayList)).apply();
-                    sharedPreferences.edit().putString("lats", ObjectSerializer.serialize(MainActivity.latitudeList)).apply();
-                    sharedPreferences.edit().putString("lon", ObjectSerializer.serialize(MainActivity.longitudeList)).apply();
+                    sharedPreferences.edit().putString("places", ObjectSerializer.serialize( PinPlaceActivity.arrayList)).apply();
+                    sharedPreferences.edit().putString("lats", ObjectSerializer.serialize( PinPlaceActivity.latitudeList)).apply();
+                    sharedPreferences.edit().putString("lon", ObjectSerializer.serialize( PinPlaceActivity.longitudeList)).apply();
 
 
                 } catch (Exception e) {
@@ -150,7 +150,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
 
-                MainActivity.arrayAdapter.notifyDataSetChanged();
+                PinPlaceActivity.arrayAdapter.notifyDataSetChanged();
                 Toast.makeText(this, "Location Saved!", Toast.LENGTH_SHORT).show();
 
             }

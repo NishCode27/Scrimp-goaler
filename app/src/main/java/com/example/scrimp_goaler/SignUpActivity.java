@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class landingpage extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     EditText username, password, repassword;
     Button signup, signin;
@@ -32,25 +32,25 @@ public class landingpage extends AppCompatActivity {
                 String repass = repassword.getText().toString();
 
                 if(user.equals("")||pass.equals("")||repass.equals(""))
-                    Toast.makeText(landingpage.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     if(pass.equals(repass)){
                         Boolean checkuser = DB.checkusername(user);
                         if(checkuser==false){
                             Boolean insert = DB.insertData(user, pass);
                             if(insert==true){
-                                Toast.makeText(landingpage.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),MapsActivity.class);
+                                Toast.makeText(SignUpActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),Login.class);
                                 startActivity(intent);
                             }else{
-                                Toast.makeText(landingpage.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else{
-                            Toast.makeText(landingpage.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(landingpage.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                     }
                 } }
         });

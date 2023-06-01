@@ -7,44 +7,5 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="142dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="152dp"
-            android:text="PinPlace"
-            android:textColor="#673AB7"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <ListView-->
-<!--            android:id="@+id/listView"-->
-<!--            android:layout_width="411dp"-->
-<!--            android:layout_height="635dp"-->
-<!--            android:layout_marginTop="34dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/textView" >-->
-
-    <Button
-        android:id="@+id/openmapBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="307dp"
-        android:layout_marginTop="602dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="81dp"
-        android:onClick="addClicked"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!--        </ListView>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
